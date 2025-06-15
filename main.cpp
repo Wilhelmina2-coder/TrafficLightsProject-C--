@@ -18,7 +18,6 @@ int main() {
     cout << "Enter green light duration (in seconds): ";
     cin >> greenTime;
 
-    // Clear input buffer after cin >> (optional in this flow)
     cin.ignore();
 
     cout << "\n--- Traffic Light Simulation at " << location << " ---\n";
@@ -34,12 +33,12 @@ int main() {
     int totalTime = redTime + yellowTime + greenTime;
 
     if (totalTime < 10) {
-        cout << "Warning: Total cycle time is too short!\n";
-    } else if (totalTime > 180) {
-        cout << "Warning: Total cycle time is too long!\n";
-    } else {
-        cout << "Cycle time is within normal range.\n";
-    }
-
-    return 0;
+    cout << "⚠️ Warning: Total cycle time is too short!\n";
+    cout << "Suggestion: Increase red, yellow, or green light durations for safe transitions.\n";
+} else if (totalTime > 180) {
+    cout << "⚠️ Warning: Total cycle time is too long!\n";
+    cout << "Suggestion: Reduce duration to avoid pedestrian impatience or gridlock.\n";
+} else {
+    cout << "✅ Cycle time is within normal range.\n";
 }
+
